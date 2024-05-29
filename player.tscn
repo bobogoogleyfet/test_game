@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6umuj0ifw7ni"]
+
+[ext_resource type="Texture2D" uid="uid://735s341nhvxx" path="res://art/player_1.png" id="1_k5yjk"]
+[ext_resource type="Texture2D" uid="uid://3rlshnehf1ai" path="res://art/player_2.png" id="2_e5elu"]
+[ext_resource type="Texture2D" uid="uid://dwheqf70cglx1" path="res://art/player_3.png" id="3_7gf7l"]
+[ext_resource type="Texture2D" uid="uid://kp4myv5k4808" path="res://art/player_4.png" id="4_ck3ub"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qpqi4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k5yjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e5elu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7gf7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ck3ub")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oe6dr"]
+size = Vector2(64, 37)
+
+[node name="Player" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qpqi4")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13.5)
+shape = SubResource("RectangleShape2D_oe6dr")
